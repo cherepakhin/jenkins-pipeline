@@ -20,6 +20,7 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile.java11'
                     dir 'build'
+                    label 'agent1'
                 }
             }
             steps {
