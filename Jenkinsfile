@@ -22,7 +22,7 @@ pipeline {
 //    }
     agent none
     stages {
-        agent {label 'java8'}
+        agent {label 'lbl-java8'}
         stage('Build1') {
             steps {
                 checkout scm
@@ -30,7 +30,7 @@ pipeline {
             }
         }
         stage('Test') {
-            agent {label 'java11'}
+            agent {label 'lbl-java11'}
 //            agent {
 //                docker {
 //                    image 'fabric8/java-alpine-openjdk11-jre'
