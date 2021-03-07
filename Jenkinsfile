@@ -1,9 +1,9 @@
 pipeline {
     agent {
         dockerfile true
-        filename 'Dockerfile.java11'
+        filename 'Dockerfile.java8'
         dir 'build'
-        label 'label-java11'
+        label 'label-java8'
     }
 //    agent {
 //        docker {
