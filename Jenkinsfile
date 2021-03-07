@@ -1,17 +1,27 @@
 pipeline {
     agent none
     stages {
-        stage('Example Build') {
-            agent { docker 'maven:3-alpine' }
+        stage('Java8') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile.java8'
+                    dir 'build'
+                }
+            }
             steps {
-                echo 'Hello, Maven'
+                echo 'Java8'
                 sh 'java -version'
             }
         }
-        stage('Example Test') {
-            agent { docker 'openjdk:8-jre' }
+        stage('Java11') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile.java11'
+                    dir 'build'
+                }
+            }
             steps {
-                echo 'Hello, JDK'
+                echo 'Java11'
                 sh 'java -version'
             }
         }
