@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'agent1'}
+    agent none
     stages {
         stage('Java8') {
             agent {
@@ -10,7 +10,7 @@ pipeline {
             }
             steps {
                 echo "${env.NODE_NAME}"
-                echo 'Java8'
+                sh 'tree'
                 sh 'env'
                 sh 'java -version'
             }
@@ -24,7 +24,7 @@ pipeline {
             }
             steps {
                 echo "${env.NODE_NAME}"
-                echo 'Java11'
+                sh 'tree'
                 sh 'env'
                 sh 'ls -l'
                 sh 'java -version'
