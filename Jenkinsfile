@@ -10,15 +10,13 @@ pipeline {
                 sh 'tree'
                 sh 'env'
                 sh 'java -version'
-                sh 'mvn --version'
-                sh 'git --version'
             }
         }
         stage('Java11') {
             agent {
                 dockerfile {
                     filename 'Dockerfile.java11'
-                    dir 'build'
+                    dir 'jenkins_build'
                 }
             }
             steps {
