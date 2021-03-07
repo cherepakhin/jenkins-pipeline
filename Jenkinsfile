@@ -6,7 +6,7 @@ pipeline {
         }
     }
     stages {
-        stage('Build') {
+        stage('Build1') {
             steps {
                 git 'https://github.com/cherepakhin/jenkins-pipeline'
                 sh 'java -version'
