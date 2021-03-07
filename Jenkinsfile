@@ -7,6 +7,7 @@ pipeline {
             }
             steps {
                 echo "${env.NODE_NAME}"
+                sh 'pwd'
                 sh 'env'
                 sh 'java -version'
             }
