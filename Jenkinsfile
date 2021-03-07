@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo "${env.NODE_NAME}"
                 echo 'Java8'
+                sh 'env'
                 sh 'java -version'
             }
         }
@@ -24,6 +25,7 @@ pipeline {
             steps {
                 echo "${env.NODE_NAME}"
                 echo 'Java11'
+                sh 'env'
                 sh 'java -version'
             }
         }
