@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Build1') {
             steps {
-                git 'https://github.com/cherepakhin/jenkins-pipeline'
+                checkout scm
                 sh 'java -version'
             }
         }
