@@ -1,11 +1,4 @@
 pipeline {
-    agent {
-        dockerfile {
-            filename 'Dockerfile.java8'
-            dir 'build'
-            label 'lbl-java8'
-        }
-    }
 
     agent {
         dockerfile {
@@ -14,18 +7,25 @@ pipeline {
             label 'lbl-java11'
         }
     }
+    agent {
+        dockerfile {
+            filename 'Dockerfile.java8'
+            dir 'build'
+            label 'lbl-java8'
+        }
+    }
     agent none
     stages {
         stage('Build1') {
-            agent {label 'lbl-java8'}
             steps {
+                agent {label 'lbl-java8'}
                 checkout scm
                 sh 'java -version'
             }
         }
         stage('Test') {
-            agent {label 'lbl-java11'}
             steps {
+                agent {label 'lbl-java11'}
                 sh 'java -version'
             }
         }
