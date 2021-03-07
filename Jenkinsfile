@@ -22,8 +22,8 @@ pipeline {
 //    }
     agent none
     stages {
-        agent {label 'lbl-java8'}
         stage('Build1') {
+            agent {label 'lbl-java8'}
             steps {
                 checkout scm
                 sh 'java -version'
