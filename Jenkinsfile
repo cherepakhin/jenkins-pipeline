@@ -7,7 +7,6 @@ pipeline {
             }
             steps {
                 echo "${env.NODE_NAME}"
-                sh 'tree'
                 sh 'env'
                 sh 'java -version'
             }
