@@ -1,5 +1,10 @@
 pipeline {
-    agent { dockerfile true }
+    agent {
+        dockerfile true
+        filename 'Dockerfile.java11'
+        dir 'build'
+        label 'label-java11'
+    }
 //    agent {
 //        docker {
 //            image 'fabric8/java-alpine-openjdk8-jre'
