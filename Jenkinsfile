@@ -26,6 +26,7 @@ pipeline {
                 echo "${env.NODE_NAME}"
                 echo 'Java11'
                 sh 'env'
+                sh 'ls -l'
                 sh 'java -version'
             }
         }
