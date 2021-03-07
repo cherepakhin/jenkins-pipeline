@@ -1,14 +1,15 @@
 pipeline {
-//    agent none
-    agent {
-        dockerfile {
-            filename 'Dockerfile.java8'
-            dir 'build'
-        }
-    }
+    agent none
     stages {
         stage('Java8') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile.java8'
+                    dir 'build'
+                }
+            }
             steps {
+                echo "${env.NODE_NAME}"
                 echo 'Java8'
                 sh 'java -version'
             }
@@ -21,6 +22,7 @@ pipeline {
                 }
             }
             steps {
+                echo "${env.NODE_NAME}"
                 echo 'Java11'
                 sh 'java -version'
             }
