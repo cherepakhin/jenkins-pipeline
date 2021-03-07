@@ -1,30 +1,17 @@
-agent {
-    dockerfile {
-        filename 'Dockerfile.java11'
-        dir 'build'
-        label 'lbl-java11'
-    }
-}
-agent {
-    dockerfile {
-        filename 'Dockerfile.java8'
-        dir 'build'
-        label 'lbl-java8'
-    }
-}
 pipeline {
     agent none
     stages {
-        stage('Build1') {
+        stage('Example Build') {
+            agent { docker 'maven:3-alpine' }
             steps {
-                agent {label 'lbl-java8'}
-                checkout scm
-                sh 'java -version'
+                echo 'Hello, Maven'
+                sh 'mvn --version'
             }
         }
-        stage('Test') {
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' }
             steps {
-                agent {label 'lbl-java11'}
+                echo 'Hello, JDK'
                 sh 'java -version'
             }
         }
