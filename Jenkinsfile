@@ -7,8 +7,11 @@ pipeline {
             }
             steps {
                 echo "${env.NODE_NAME}"
+                sh 'tree'
                 sh 'env'
                 sh 'java -version'
+                sh 'mvn --version'
+                sh 'git --version'
             }
         }
         stage('Java11') {
