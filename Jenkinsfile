@@ -1,19 +1,18 @@
+agent {
+    dockerfile {
+        filename 'Dockerfile.java11'
+        dir 'build'
+        label 'lbl-java11'
+    }
+}
+agent {
+    dockerfile {
+        filename 'Dockerfile.java8'
+        dir 'build'
+        label 'lbl-java8'
+    }
+}
 pipeline {
-
-    agent {
-        dockerfile {
-            filename 'Dockerfile.java11'
-            dir 'build'
-            label 'lbl-java11'
-        }
-    }
-    agent {
-        dockerfile {
-            filename 'Dockerfile.java8'
-            dir 'build'
-            label 'lbl-java8'
-        }
-    }
     agent none
     stages {
         stage('Build1') {
