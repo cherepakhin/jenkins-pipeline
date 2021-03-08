@@ -8,11 +8,10 @@ pipeline {
             agent {
                 docker {
                     image 'bitnami/kubectl:latest'
-                    args "-v /root/.kube:/root/.kube"
+                    args "-v /var/run/docker.sock:/var/run/docker.sock"
                 }
             }
             steps {
-                sh 'pwd'
                 sh 'ls -al'
                 sh 'ls -al /root'
 //                sh 'cat .kube/config'
