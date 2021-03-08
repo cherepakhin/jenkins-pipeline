@@ -4,18 +4,14 @@ pipeline {
 //        label 'agent1'
 //    }
     stages {
-        stage('buoyantio/kubectl') {
+        stage('bitnami/kubectl') {
             agent {
                 docker {
-                    image 'jacobalberty/docker:fbconsist'
-                    args "-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock"
+                    image 'bitnami/kubectl:latest'
+                    args "-v /root/.kube:/root/.kube -v /var/run/docker.sock:/var/run/docker.sock"
                 }
             }
             steps {
-                sh 'ls -al'
-                sh 'ls -al /root'
-//                sh 'cat .kube/config'
-//                sh 'kubectl version'
             }
         }
         stage('Java8') {
