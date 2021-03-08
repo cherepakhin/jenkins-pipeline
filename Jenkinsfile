@@ -1,8 +1,8 @@
 pipeline {
-//    agent none
-    agent {
-        label 'agent1'
-    }
+    agent none
+//    agent {
+//        label 'agent1'
+//    }
     stages {
         stage('Java8') {
             agent {
