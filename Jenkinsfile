@@ -9,6 +9,7 @@ pipeline {
                 docker {
                     image 'bitnami/kubectl'
                     args "-v /var/run/docker.sock:/var/run/docker.sock -v /root/.kube:/root/.kube"
+                    label 'agent1'
                 }
             }
             steps {
