@@ -12,7 +12,7 @@ pipeline {
                 }
             }
             steps {
-//                sh 'docker version'
+                sh 'cat .kube/config'
                 sh 'kubectl version'
             }
         }
