@@ -1,16 +1,16 @@
 pipeline {
 //    agent none
     agent {
-        label 'agent1'
+        dockerfile {
+            label 'agent1'
+            filename 'Dockerfile.java8'
+            dir 'jenkins_build'
+        }
     }
     stages {
         stage('Java8') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile.java11'
-                    dir 'jenkins_build'
-                }
-            }
+//            agent {
+//            }
             steps {
                 echo "${env.NODE_NAME}"
                 sh 'pwd'
