@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('check docker') {
             agent {
-                label 'agent1'
+                label 'master'
             }
             steps {
                 sh 'docker version'
