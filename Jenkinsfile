@@ -8,11 +8,12 @@ pipeline {
             agent {
                 docker {
                     image 'bitnami/kubectl:latest'
-                    args "-v /root/.kube:/root/.kube -v /var/run/docker.sock:/var/run/docker.sock"
+                    args "-v /root/.kube/config:/.kube/config -v /var/run/docker.sock:/var/run/docker.sock"
                 }
             }
             steps {
                 echo "${env.NODE_NAME}"
+                sh "version"
             }
         }
         stage('Java8') {
