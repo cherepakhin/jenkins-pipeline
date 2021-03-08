@@ -4,6 +4,14 @@ pipeline {
 //        label 'agent1'
 //    }
     stages {
+        stage('check docker') {
+            agent {
+                label 'agent1'
+            }
+            steps {
+                sh 'docker version'
+            }
+        }
         stage('Java8') {
             agent {
                 docker {
@@ -16,7 +24,6 @@ pipeline {
                 sh 'pwd'
                 sh 'env'
                 sh 'java -version'
-                sh 'docker version'
             }
         }
         stage('Java11') {
@@ -33,7 +40,6 @@ pipeline {
                 sh 'env'
                 sh 'ls -l'
                 sh 'java -version'
-                sh 'docker version'
             }
         }
     }
