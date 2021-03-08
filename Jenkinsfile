@@ -3,6 +3,7 @@ pipeline {
         dockerfile {
             filename 'Dockerfile.java8'
             dir 'jenkins_build'
+            args "-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock"
         }
     }
 //    agent none
