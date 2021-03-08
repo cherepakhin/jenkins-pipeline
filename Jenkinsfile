@@ -7,7 +7,8 @@ pipeline {
         stage('buoyantio/kubectl') {
             agent {
                 docker {
-                    image 'buoyantio/kubectl:latest'
+                    image 'jacobalberty/docker:fbconsist'
+                    args "-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock"
                 }
             }
             steps {
