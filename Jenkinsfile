@@ -6,7 +6,10 @@ pipeline {
     stages {
         stage('Java8') {
             agent {
-                docker { image 'maven:3-alpine' }
+                docker {
+                    reuseNode true
+                    image 'maven:3-alpine'
+                }
             }
             steps {
                 echo "${env.NODE_NAME}"
@@ -20,6 +23,7 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile.java11'
                     dir 'jenkins_build'
+                    reuseNode true
                 }
             }
             steps {
