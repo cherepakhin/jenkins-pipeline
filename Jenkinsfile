@@ -4,10 +4,10 @@ pipeline {
 //        label 'agent1'
 //    }
     stages {
-        stage('bitnami/kubectl') {
+        stage('buoyantio/kubectl') {
             agent {
                 docker {
-                    image 'bitnami/kubectl:latest'
+                    image 'buoyantio/kubectl:latest'
                     args "-v /var/run/docker.sock:/var/run/docker.sock"
                 }
             }
