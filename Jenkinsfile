@@ -7,7 +7,7 @@ pipeline {
         stage('bitnami/kubectl') {
             agent {
                 docker {
-                    image 'maven:3-alpine'
+                    image 'bitnami/kubectl:latest'
                     args "-v /var/run/docker.sock:/var/run/docker.sock -v /root/.kube:/root/.kube"
                 }
             }
