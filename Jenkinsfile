@@ -10,6 +10,7 @@ pipeline {
             }
             steps {
                 sh 'docker version'
+                sh 'kubectl version'
             }
         }
         stage('Java8') {
