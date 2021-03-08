@@ -12,7 +12,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'ls -l'
+                sh 'ls -al'
 //                sh 'cat .kube/config'
 //                sh 'kubectl version'
             }
