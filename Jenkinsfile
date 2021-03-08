@@ -7,7 +7,6 @@ pipeline {
         stage('Java8') {
             agent {
                 docker {
-                    reuseNode true
                     image 'maven:3-alpine'
                 }
             }
@@ -16,8 +15,7 @@ pipeline {
                 sh 'pwd'
                 sh 'env'
                 sh 'java -version'
-                sh 'cat file.txt'
-                sh 'echo java8 >> file.txt'
+                sh 'docker version'
             }
         }
         stage('Java11') {
@@ -34,7 +32,7 @@ pipeline {
                 sh 'env'
                 sh 'ls -l'
                 sh 'java -version'
-                sh 'cat file.txt'
+                sh 'docker version'
             }
         }
     }
