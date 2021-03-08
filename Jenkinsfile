@@ -1,17 +1,10 @@
 pipeline {
-    agent {
-        dockerfile {
-            filename 'Dockerfile.java8'
-            dir 'jenkins_build'
-            args "-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock"
-        }
-    }
 //    agent none
+    agent {
+        label 'agent1'
+    }
     stages {
         stage('Java8') {
-//            agent {
-//                label 'agent1'
-//            }
             steps {
                 echo "${env.NODE_NAME}"
                 sh 'pwd'
