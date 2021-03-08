@@ -1,15 +1,12 @@
 pipeline {
 //    agent none
     agent {
-        label 'agent2'
+        label 'agent1'
     }
     stages {
         stage('Java8') {
             agent {
-                dockerfile {
-                    filename 'Dockerfile.java11'
-                    dir 'jenkins_build'
-                }
+                docker { image 'maven:3-alpine' }
             }
             steps {
                 echo "${env.NODE_NAME}"
