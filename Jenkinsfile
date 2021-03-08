@@ -16,6 +16,8 @@ pipeline {
                 sh 'pwd'
                 sh 'env'
                 sh 'java -version'
+                sh 'cat file.txt'
+                sh 'echo java8 >> file.txt'
             }
         }
         stage('Java11') {
@@ -32,6 +34,7 @@ pipeline {
                 sh 'env'
                 sh 'ls -l'
                 sh 'java -version'
+                sh 'cat file.txt'
             }
         }
     }
