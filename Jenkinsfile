@@ -7,7 +7,7 @@ pipeline {
         stage('Java8') {
             agent {
                 dockerfile {
-                    filename 'Dockerfile.java8'
+                    filename 'Dockerfile.java11'
                     dir 'jenkins_build'
                 }
             }
