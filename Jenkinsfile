@@ -12,6 +12,7 @@ pipeline {
                 }
             }
             steps {
+                echo "${env.NODE_NAME}"
             }
         }
         stage('Java8') {
