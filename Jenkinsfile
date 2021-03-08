@@ -5,6 +5,12 @@ pipeline {
     }
     stages {
         stage('Java8') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile.java8'
+                    dir 'jenkins_build'
+                }
+            }
             steps {
                 echo "${env.NODE_NAME}"
                 sh 'pwd'
