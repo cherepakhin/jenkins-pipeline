@@ -6,8 +6,10 @@ pipeline {
     stages {
         stage('bitnami/kubectl') {
             agent {
-                image 'bitnami/kubectl'
-                args "-v /root/.kube:/root/.kube"
+                docker {
+                    image 'bitnami/kubectl'
+                    args "-v /root/.kube:/root/.kube"
+                }
             }
             steps {
 //                sh 'docker version'
