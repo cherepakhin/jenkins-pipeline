@@ -4,13 +4,13 @@ pipeline {
 //        label 'agent1'
 //    }
     stages {
-        stage('check docker') {
+        stage('bitnami/kubectl') {
             agent {
-                label 'master'
+                image 'bitnami/kubectl'
                 args "-v /root/.kube:/root/.kube"
             }
             steps {
-                sh 'docker version'
+//                sh 'docker version'
                 sh 'kubectl version'
             }
         }
