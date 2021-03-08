@@ -7,6 +7,7 @@ pipeline {
         stage('check docker') {
             agent {
                 label 'master'
+                args "-v /root/.kube:/root/.kube"
             }
             steps {
                 sh 'docker version'
