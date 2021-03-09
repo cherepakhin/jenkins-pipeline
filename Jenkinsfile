@@ -12,6 +12,8 @@ pipeline {
                 }
             }
             steps {
+                echo "${KUBER_NS_DEFAULT}"
+                echo KUBER_NS_DEFAULT
                 echo "${env.NODE_NAME}"
                 sh "version"
             }
