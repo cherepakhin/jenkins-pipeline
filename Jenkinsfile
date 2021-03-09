@@ -6,9 +6,10 @@ pipeline {
     stages {
         stage('bitnami/kubectl') {
             agent {
-                docker {
-                    image 'bitnami/kubectl:latest'
-                    args "-v /root/.kube/config:/.kube/config -v /var/run/docker.sock:/var/run/docker.sock"
+                dockerfile {
+                    filename 'Dockerfile.java11'
+                    dir 'jenkins_build'
+                    reuseNode true
                 }
             }
             steps {
